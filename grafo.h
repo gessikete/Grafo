@@ -18,7 +18,9 @@ Para executar:
 #include <stdlib.h>
 #include "no.h"
 
-static int antecessor[1000]
+#define MAX_DIM 100
+
+int q[MAX_DIM];
 
 typedef struct vertices_head
 {
@@ -36,4 +38,4 @@ void
 imprimeGrafo(Grafo *g);
 
 void
-buscaEmLargura(Grafo *g, No no_s);
+bfs(Grafo *g, int no_s);

@@ -121,14 +121,45 @@ imprimeGrafo(Grafo *g)
  * Funcao que realiza a busca em largura em um grafo
  */
 
-void buscaEmLargura(Grafo *g, No no_s){
-    int v;
-    int count = 0;
+void bfs(Grafo *g, int no_s){ 
+    int v, x, z, inicio, fim, u, w;
+    No aux;
+    int antecessor[g->nroVertices + 1];
+	int h_q, t_q = 0;
     
     if(g!=NULL){
-	for(v = 0; v < g->nroVertices; v++)
-	    antecessor[] = -1;
-	antecessor[no_s]
+		for(v = 1; v <= g->nroVertices; v++) antecessor[v] = -1;
+		
+		q[1] = no_s;
+		h_q = t_q = 1;
+		antecessor[no_s] = 0;
+		
+		for(z = 1; z <= g->nroVertices; z++){
+			printf(" distancia: %d %d", z, g->nroVertices);
+			
+			inicio = h_q;
+			fim = t_q;
+			
+			for(x = inicio; x <= fim; x++){
+				w = q[x];
+				
+				aux = g->Adj[w];
+				for(v = 1; v <= aux->chave; v++){
+					u = aux->prox[x].chave;
+					if(antecessor[u] == -1){
+						antecessor[u] = z;
+						printf("%d ", u);
+						
+						q[++t_q] = u;
+					}
+				}
+			}
+			h_q = fim + 1;
+			printf("\n");
+		}
+    } // fim teste pra grafo vazio
+}
+
+void dijkstra(int no_s){
 	
-    }
 }
