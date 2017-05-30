@@ -10,4 +10,4 @@ Implementação de uma estrutura de grafo em C e algumas funções de busca.
       * Um grafo G1 com ciclo de peso negativo
       * Um grafo G2 sem ciclo de peso negativo
     - Verificar nos testes se a ordem de verificação das arestas é importante!!!
-    - A entrada do algoritmo de Bellman-Ford é o grafo G e um vrtice de origem S (começar a análise de arestas desse vértice)
+    - A entrada do algoritmo de Bellman-Ford é o grafo G e um vertice de origem S (começar a análise de arestas desse vértice)
