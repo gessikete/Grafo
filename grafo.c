@@ -160,6 +160,27 @@ void bfs(Grafo *g, int no_s){
     } // fim teste pra grafo vazio
 }
 
-void dijkstra(int no_s){
+void dijkstra(Grafo *g, int no_s){
 	
 }
+
+void bellman(Grafo *g, int s){
+  int u;
+  int cor[g->nroVertices], d[g->nroVertices], pi[g->nroVertices];
+  No Q = NULL;
+  
+  for(u = 0; u < g->nroVertices; u++){
+    cor[u] = BRANCO;
+    d[u] = MAIS_INFINITO;
+    pi[u] = NULL;
+  }
+  cor[s] = CINZA;
+  d[s] = 0;
+  pi[s] = NULL;
+  
+  for(i = 0; i < g->nroVertices - 1; i++){
+    
+  }
+}
+
+

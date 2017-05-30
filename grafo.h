@@ -18,9 +18,10 @@ Para executar:
 #include <stdlib.h>
 #include "no.h"
 
-#define MAX_DIM 100
+#define MAIS_INFINITO 999
+#define MENOS_INFINITO -999
 
-int q[MAX_DIM];
+enum cores {BRANCO, CINZA, PRETO};
 
 typedef struct vertices_head
 {
