@@ -15,9 +15,16 @@
 #include "fila.h"
 #include "grafo.h"
 
-#define MAIS_INFINITO 999
-#define MENOS_INFINITO -999
+#define MAIS_INFINITO 999.0
+#define MENOS_INFINITO -999.0
 
 enum cores {BRANCO, CINZA, PRETO};
 
-void bfs(Grafo *g, int no_s);
+typedef int bool;
+enum bool {true, false};
+
+void bfs(Grafo *g, int s);
+
+void dijkstra(Grafo *g, int s);
+
+bool bellmanFord(Grafo *g, int s);

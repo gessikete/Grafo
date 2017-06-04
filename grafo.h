@@ -15,7 +15,10 @@
 
 typedef struct vertices_head
 {
-  int nroVertices;
+  int nroVertices; // número de vértices do grafo
+  int *grau; // grau de cada lista de adjacencia
+  float *distancia; // menor distancia do vertice inicial a qualquer vertice
+  int *pi; // vertice pai de cada vertice
   No *Adj;
 } Grafo;
 

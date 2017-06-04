@@ -18,10 +18,14 @@ Grafo * Grafo_cria (int nVertices)
     Grafo *g;
     g = malloc(sizeof(Grafo));
     g->nroVertices = nVertices;
+    g->grau = malloc(sizeof(int)*nVertices);
+    g->distancia = malloc(sizeof(float)*nVertices);
+    g->pi = malloc(sizeof(int)*nVertices);
     g->Adj = malloc(sizeof(No)*nVertices);
     for(i = 0; i < g->nroVertices;i++)
     {
 		g->Adj[i] = NULL;
+		g->grau[i] = 0;
     }
     return g;
 }
@@ -93,13 +97,17 @@ void imprimeGrafo(Grafo *g)
 		{
 		    printf("%d || ",i+1);
 		    aux = g->Adj[i];
-		    while(aux->prox != NULL)
+		    if(aux != NULL)
 		    {
-				printf("%d(%.2f) => ",aux->chave+1,aux->w);
-				aux=aux->prox;
-		    }
-		    printf("%d(%.2f).",aux->chave+1,aux->w);
-		    printf("\n");
+			    while(aux->prox != NULL)
+			    {
+					printf("%d(%.2f) => ",aux->chave+1,aux->w);
+					aux=aux->prox;
+			    }
+			    printf("%d(%.2f)",aux->chave+1,aux->w);
+			}
+			printf(".\n");
+
 		}
     }
 }

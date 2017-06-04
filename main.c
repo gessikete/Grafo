@@ -22,7 +22,7 @@ Para executar:
 
 int main()
 {
-    int i,j,r,nroVertices,eh_digrafo = 1;
+    int i,j,r,nroVertices,eh_digrafo = 1, grau;
     float aresta;
     Grafo *g = NULL;
     No no_u,no_v;
@@ -34,13 +34,15 @@ int main()
     // Como a matriz eh simetrica, 
     for(i = 0; i < nroVertices;i++)
     {
-    	for(j = 0; j < nroVertices;j++)
+    	grau = 0;
+        for(j = 0; j < nroVertices;j++)
     	{
     	    scanf("%f",&aresta);
     	    //if(aresta > 0.0 && i < j)
-    	    if(aresta > 0.0)
+    	    if(aresta != 0.0)
             {
-        		no_u = No_cria(i,aresta);
+        		grau++;
+                no_u = No_cria(i,aresta);
         		no_v = No_cria(j,aresta);
         		
                 r = Grafo_insereAresta(g,no_u,no_v,eh_digrafo);
@@ -51,6 +53,7 @@ int main()
     	    }
     	}
     	scanf("\n");
+        g->grau[i] = grau;
     }
     
     /* Como usar as funcoes da fila
@@ -62,12 +65,25 @@ int main()
     free(Q);  
     */
    
-    bfs(g, 0);
+    //bfs(g, 0);
+    
+    //dijkstra(g,0);
+    
+    //printf(bellmanFord(g, 0) ? "O grafo contem ciclo de peso negativo\n" : "O grafo nao contem ciclo de peso negativo\n");
+    
+    for(i = 0; i < g->nroVertices; i++)
+    {
+        printf("%.2f ", g->distancia[i]);
+    }
+    printf("\n");
     
     imprimeGrafo(g);
     
     // Libera o espaco em memoria
     free(g->Adj);
+    free(g->distancia);
+    free(g->pi);
+    free(g->grau);
     free(g);
     free(no_u);
     free(no_v);
