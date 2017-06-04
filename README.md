@@ -2,6 +2,13 @@
 
 Implementação de uma estrutura de grafo em C e algumas funções de busca.
 
+## Compilação e Execução
+
+Como compilar:
+                gcc *.c -o busca
+Para executar:
+                ./busca < grafo.in
+
 ## Progresso
 
 1. Implementar algoritmo de busca em largura e Dijsktra
