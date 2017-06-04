@@ -5,19 +5,19 @@
  * Prof. Dr. Vinicius Ruela Pereira Borges
  * Géssica Neves Sodré da Silva - 110146115
 
- Arquivo: no.c
+ Arquivo: busca.h
                 
 */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include "no.h"
+#include "fila.h"
+#include "grafo.h"
 
-No No_cria(int chave, float peso)
-{
-    No novo;
+#define MAIS_INFINITO 999
+#define MENOS_INFINITO -999
 
-    novo = malloc(sizeof(No));
-    novo->chave = chave;
-    novo->w = peso;
-    novo->prox = NULL;
-    return novo;
-}
+enum cores {BRANCO, CINZA, PRETO};
+
+void bfs(Grafo *g, int no_s);

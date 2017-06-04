@@ -3,14 +3,9 @@
  * Departamento de Ciência da Computação
  * Teoria e Aplicações de Grafos
  * Prof. Dr. Vinicius Ruela Pereira Borges
+ * Géssica Neves Sodré da Silva - 110146115
 
  Arquivo: fila.h
- 
-Funcao deste programa: Implementacao de um grafo utilizando representacao de lista de adjacencia
-Como compilar:
-                gcc *.c -o busca
-Para executar:
-                ./busca < g1.in
                 
 */
 

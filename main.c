@@ -3,6 +3,7 @@
  * Departamento de Ciência da Computação
  * Teoria e Aplicações de Grafos
  * Prof. Dr. Vinicius Ruela Pereira Borges
+ * Géssica Neves Sodré da Silva - 110146115
 
  Arquivo: main.c
  
@@ -16,16 +17,15 @@ Para executar:
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "grafo.h"
-#include "fila.h"
+#include "busca.h"
 
-main()
+
+int main()
 {
-    int i,j,r,nroVertices;
+    int i,j,r,nroVertices,eh_digrafo = 1;
     float aresta;
     Grafo *g = NULL;
-    No Q = NULL;
-    No des,no_u,no_v;
+    No no_u,no_v;
 
     // Leitura I/O padrao do numero de vertices do Grafo G
     scanf("%d\n",&nroVertices);
@@ -34,23 +34,23 @@ main()
     // Como a matriz eh simetrica, 
     for(i = 0; i < nroVertices;i++)
     {
-	for(j = 0; j < nroVertices;j++)
-	{
-	    scanf("%f",&aresta);
-	    if(aresta > 0.0 && i < j)
-	    {
-		
-		no_u = No_cria(i,aresta);
-		no_v = No_cria(j,aresta);
-		
-	        r = Grafo_insereAresta(g,no_u,no_v);
-		if(!r)
-		{
-		    fprintf(stderr,"ERRO ao inserir aresta!\n");
-		}
-	    }
-	}
-	scanf("\n");
+    	for(j = 0; j < nroVertices;j++)
+    	{
+    	    scanf("%f",&aresta);
+    	    //if(aresta > 0.0 && i < j)
+    	    if(aresta > 0.0)
+            {
+        		no_u = No_cria(i,aresta);
+        		no_v = No_cria(j,aresta);
+        		
+                r = Grafo_insereAresta(g,no_u,no_v,eh_digrafo);
+        		if(!r)
+        		{
+        		    fprintf(stderr,"ERRO ao inserir aresta!\n");
+        		}
+    	    }
+    	}
+    	scanf("\n");
     }
     
     /* Como usar as funcoes da fila
@@ -61,6 +61,8 @@ main()
     Fila_imprime(Q);
     free(Q);  
     */
+   
+    bfs(g, 0);
     
     imprimeGrafo(g);
     

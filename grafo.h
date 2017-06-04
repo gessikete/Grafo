@@ -3,14 +3,9 @@
  * Departamento de Ciência da Computação
  * Teoria e Aplicações de Grafos
  * Prof. Dr. Vinicius Ruela Pereira Borges
+ * Géssica Neves Sodré da Silva - 110146115
 
  Arquivo: grafo.h
- 
-Funcao deste programa: Implementacao de um grafo utilizando representacao de lista de adjacencia
-Como compilar:
-                gcc *.c -o busca
-Para executar:
-                ./busca < g1.in
                 
 */
 
@@ -18,25 +13,14 @@ Para executar:
 #include <stdlib.h>
 #include "no.h"
 
-#define MAIS_INFINITO 999
-#define MENOS_INFINITO -999
-
-enum cores {BRANCO, CINZA, PRETO};
-
 typedef struct vertices_head
 {
   int nroVertices;
   No *Adj;
 } Grafo;
 
-Grafo *
-Grafo_cria (int number_of_vertices);
+Grafo * Grafo_cria (int number_of_vertices);
 
-int
-Grafo_insereAresta(Grafo *g, No no_u, No no_v);
+int Grafo_insereAresta(Grafo *g, No no_u, No no_v, int eh_digrafo);
 
-void
-imprimeGrafo(Grafo *g);
-
-void
-bfs(Grafo *g, int no_s);
+void imprimeGrafo(Grafo *g);
