@@ -4,10 +4,11 @@ Implementação de uma estrutura de grafo em C e algumas funções de busca.
 
 ## Compilação e Execução
 
-Como compilar:
-                gcc *.c -o busca
-Para executar:
-                ./busca < grafo.in
+1. Como compilar:
+```gcc *.c -o busca```
+
+2. Para executar:
+```./busca < grafo.in```
 
 ## Progresso
 
