@@ -37,3 +37,5 @@ Implementação de uma estrutura de grafo em C e algumas funções de busca.
 2. Arrumar Bellman-Ford
 
 3. Função para imprimir as estruturas com as respostas
+
+4. Corrigir arrays de distancia e antecessor para ser uma matriz.
