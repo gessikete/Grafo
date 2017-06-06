@@ -58,7 +58,7 @@ int Grafo_insereAresta(Grafo *g, No no_u, No no_v, int eh_digrafo)
 		aux->prox = no_v;	
     }
     
-    if(!eh_digrafo)
+    if(eh_digrafo)
     {
 	    if(g->Adj[no_v->chave] == NULL)
 	    {

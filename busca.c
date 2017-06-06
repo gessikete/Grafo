@@ -113,7 +113,7 @@ void dijkstra(Grafo *g, int s)
  */
 bool bellmanFord(Grafo *g, int s)
 {
-    int i, j, r, verticeNegativo;
+    int i, j, k, r, verticeNegativo;
     No u = NULL, v = NULL, Q = NULL;
     // Inicialização
     for(i = 0; i <= g->nroVertices; ++i)
@@ -128,7 +128,7 @@ bool bellmanFord(Grafo *g, int s)
 
     // Relaxamento
     // percorre os vértices
-    for(i = 1; i < g->nroVertices; i++)
+    for(i = 0; i < g->nroVertices - 1; i++)
     {
         u = Fila_desenfileira(&Q);
 
@@ -136,35 +136,35 @@ bool bellmanFord(Grafo *g, int s)
 
         while(v != NULL)
         {
+	    printf("g->distancia[v->chave] = %.2f; g->distancia[u->chave] = %.2f; v->w = %.2f\n",  g->distancia[v->chave], g->distancia[u->chave], v->w);
             if(g->distancia[v->chave] > (g->distancia[u->chave] + v->w))
             {
                 g->distancia[v->chave] = g->distancia[u->chave] + v->w;
                 g->pi[v->chave] = u->chave;
             }
             v = v->prox;
+	    printf("\n------\n");
         }
     }
 
     // Checa por ciclos negativos
     for(i = 0; i < g->nroVertices; i++)
     {
-        j = 0;
-        u = g->Adj[i];
+        v = g->Adj[i]; 
 
-        while(u != NULL)
+        while(v != NULL)
         {
-            if(g->distancia[u->chave] > (u->w + g->distancia[j]))
+            if(g->distancia[v->chave] > (g->distancia[i] + v->w))
             {
                 // Ciclo negativo encontrado
-                verticeNegativo = j;
-                return true;
+                verticeNegativo = v->chave;
+                return false;
             }
-
-            u = u->prox;
+            v = v->prox;
         }
     }
 
-    return false;
+    return true;
 }
 
 /*

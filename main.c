@@ -22,10 +22,10 @@ Para executar:
 
 int main()
 {
-    int i,j,r,nroVertices,eh_digrafo = 1, grau;
+    int i,j,r,nroVertices,eh_digrafo = true, grau;
     float aresta;
     Grafo *g = NULL;
-    No no_u,no_v;
+    No no_u,no_v, aux_u, aux_v;
 
     // Leitura I/O padrao do numero de vertices do Grafo G
     scanf("%d\n",&nroVertices);
@@ -49,7 +49,7 @@ int main()
         		if(!r)
         		{
         		    fprintf(stderr,"ERRO ao inserir aresta!\n");
-        		}
+        		}        		
     	    }
     	}
     	scanf("\n");
@@ -71,11 +71,11 @@ int main()
     
     //printf(bellmanFord(g, 0) ? "O grafo contem ciclo de peso negativo\n" : "O grafo nao contem ciclo de peso negativo\n");
     
-    for(i = 0; i < g->nroVertices; i++)
-    {
-        printf("%.2f ", g->distancia[i]);
-    }
-    printf("\n");
+    //for(i = 0; i < g->nroVertices; i++)
+    //{
+    //    printf("%.2f ", g->distancia[i]);
+    //}
+    //printf("\n");
     
     imprimeGrafo(g);
     
