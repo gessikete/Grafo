@@ -28,7 +28,7 @@ Implementação de uma estrutura de grafo em C e algumas funções de busca.
 	- desinfeleira primeiro e depois enfileira os nós adjacentes
 	- pra enfileirar cria um novo nó com peso zero
 
-3. Implementar algoritmo Floyd-Warshall
+3. Implementar o problema [106 miles to chicago](https://www.urionlinejudge.com.br/judge/en/problems/view/1655) utilizando o algoritmo Floyd-Warshall
 
 ## TODO
 
